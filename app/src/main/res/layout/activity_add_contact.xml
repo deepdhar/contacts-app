@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient2"
+    tools:context=".AddContactActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/photo_edit" />
+
+    <EditText
+        android:id="@+id/name_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_image"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/edittext_bg"
+        android:hint="Name"
+        android:inputType="text"
+        android:padding="14dp"
+        android:textColor="@color/white"
+        android:textColorHint="#E4AFAFAF"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:id="@+id/phone_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_et"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="18dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/phone_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@drawable/edittext_bg"
+            android:hint="Phone number"
+            android:inputType="phone"
+            android:padding="14dp"
+            android:textColor="@color/white"
+            android:textColorHint="#E4AFAFAF"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/email_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phone_ll"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/edittext_bg"
+        android:hint="Email address"
+        android:inputType="textEmailAddress"
+        android:padding="14dp"
+        android:textColor="@color/white"
+        android:textColorHint="#E4AFAFAF"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/pincode_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email_et"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/edittext_bg"
+        android:hint="Pincode"
+        android:inputType="number"
+        android:padding="14dp"
+        android:textColor="@color/white"
+        android:textColorHint="#E4AFAFAF"
+        android:textSize="15sp" />
+
+</RelativeLayout>
