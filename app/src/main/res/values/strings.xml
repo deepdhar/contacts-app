@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyContacts</string>
+    <string name="app_name">Contacts App</string>
     <string name="workphone">Work</string>
 
     <string name="homephone">Home</string>
