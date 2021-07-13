@@ -37,13 +37,14 @@ public class AddContactActivity extends AppCompatActivity implements LoaderManag
     private Uri mPhotoUri;
     private Uri mCurrentContactUri;
     ImageView mPhoto;
-    private boolean mContactHasChanged = false;
+    private boolean contactChanged = false;
     public static final int LOADER = 0;
+    public static int flag = 0;
 
     private View.OnTouchListener mOnTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            mContactHasChanged = true;
+            contactChanged = true;
             return false;
         }
     };
@@ -86,7 +87,7 @@ public class AddContactActivity extends AppCompatActivity implements LoaderManag
             @Override
             public void onClick(View v) {
                 trySelector();
-                mContactHasChanged = true;
+                contactChanged = true;
             }
         });
 
@@ -95,13 +96,13 @@ public class AddContactActivity extends AppCompatActivity implements LoaderManag
 
     public void trySelector() {
         if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
+                Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
             return;
         }
         openSelector();
+        flag = 1;
     }
 
     private void openSelector() {
@@ -142,7 +143,6 @@ public class AddContactActivity extends AppCompatActivity implements LoaderManag
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menueditor, menu);
         return true;
-
     }
 
     @Override
@@ -173,7 +173,7 @@ public class AddContactActivity extends AppCompatActivity implements LoaderManag
                 return true;
 
             case android.R.id.home:
-                if (!mContactHasChanged) {
+                if (!contactChanged) {
                     // we will be displayed a dialog asking us to discard or keeping editing when we press back in case
                     // we have not finished filling up some field
                     NavUtils.navigateUpFromSameTask(AddContactActivity.this);
@@ -231,7 +231,12 @@ public class AddContactActivity extends AppCompatActivity implements LoaderManag
         values.put(Contract.ContactEntry.COLUMN_PINCODE, pincode);
 
         // optional values
-        values.put(Contract.ContactEntry.COLUMN_PICTURE, mPhotoUri.toString());
+        if(flag==1) {
+            values.put(Contract.ContactEntry.COLUMN_PICTURE, mPhotoUri.toString());
+        } else {
+            Toast.makeText(this, "Contact Image required", Toast.LENGTH_SHORT).show();
+            return hasAllRequiredValues;
+        }
 
         if (mCurrentContactUri == null) {
 
@@ -393,7 +398,7 @@ public class AddContactActivity extends AppCompatActivity implements LoaderManag
     @Override
     public void onBackPressed() {
         // If the product hasn't changed, continue with handling back button press
-        if (!mContactHasChanged) {
+        if (!contactChanged) {
             super.onBackPressed();
             overridePendingTransition(R.anim.fade_in, R.anim.slide_out_right);
             return;
