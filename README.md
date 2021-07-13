@@ -8,9 +8,10 @@ This is an android app to save contacts on your phone without any internet conne
 ---
 
 ## Installation
-- Clone this repo and import in **Android Studio**
+- Fork the repo in your account
+- Clone the forked repo and import in **Android Studio**
 ````bash
-git clone https://github.com/deepdhar/contacts-app.git
+git clone https://github.com/<your-username>/contacts-app.git
 ````
 - Create a virtual emulator or connect an android smartphone to your machine
 - Turn on USB debugging if using a smartphone
@@ -35,3 +36,8 @@ From Android Studio
 - Stores contacts on device offline
 - Clean user interface and easy readability
 - Update and Delete contacts feature
+
+---
+
+### Maintained By
+[Deep Dhar](https://github.com/deepdhar) ❤☕
