@@ -8,14 +8,18 @@ This is an android app to save contacts on your phone without any internet conne
 ---
 
 ## Installation
-- Fork the repo in your account
-- Clone the forked repo and import in **Android Studio**
+**1.** Fork the repo in your account
+
+**2.** Clone the forked repo and import in **Android Studio**
 ````bash
 git clone https://github.com/<your-username>/contacts-app.git
 ````
-- Create a virtual emulator or connect an android smartphone to your machine
-- Turn on USB debugging if using a smartphone
-- Run the app from android studio
+
+**3.** Create a virtual emulator or connect an android smartphone to your machine
+
+**4.** Turn on USB debugging if using a smartphone
+
+**5.** Run the app from android studio
 
 ## Dependencies
 - [Picasso](https://github.com/square/picasso)
