@@ -2,6 +2,8 @@
   <img width="300" height="300" src="https://user-images.githubusercontent.com/53803245/125454264-622edf88-a0e4-4551-b106-d2694c0aaa3f.png">
 </p>
 
+[![GitHub release](https://img.shields.io/badge/release-v1.0-blue)](https://github.com/deepdhar/contacts-app/releases/tag/v1.0) 
+
 # Contacts App
 This is an android app to save contacts on your phone without any internet connection
 
