@@ -74,7 +74,6 @@ public class Provider extends ContentProvider {
     public Uri insert(  Uri uri,  ContentValues values) {
 
        // whenever we are inserting this means we are adding a new row in table so here only one case is applicable
-
         int match = sUriMatcher.match(uri);
         switch (match) {
             case CONTACTS:
@@ -132,8 +131,6 @@ public class Provider extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Can't delete" + uri);
 
-
-
         }
 
         if (rowsDeleted!=0) {
@@ -177,13 +174,6 @@ public class Provider extends ContentProvider {
                   throw new IllegalArgumentException("number is required");
               }
         }
-
-//        if (values.containsKey(Contract.ContactEntry.COLUMN_EMAIL)) {
-//            String email = values.getAsString(Contract.ContactEntry.COLUMN_EMAIL);
-//            if (email == null) {
-//                throw new IllegalArgumentException("email is required");
-//            }
-//        }
 
 
         if (values.size() == 0) {

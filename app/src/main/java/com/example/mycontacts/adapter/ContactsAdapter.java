@@ -47,7 +47,6 @@ public class ContactsAdapter extends CursorAdapter {
 
         nameView.setText(contactname);
         numberView.setText(contactnumber);
-//        mContactImageView.setImageURI(imageUri);
         Picasso.get().load(imageUri).into(mContactImageView);
     }
 }

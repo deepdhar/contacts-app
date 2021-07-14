@@ -102,7 +102,6 @@ public class AddContactActivity extends AppCompatActivity implements LoaderManag
             return;
         }
         openSelector();
-        flag = 1;
     }
 
     private void openSelector() {
@@ -115,6 +114,7 @@ public class AddContactActivity extends AppCompatActivity implements LoaderManag
         }
         intent.setType(getString(R.string.intent_type));
         startActivityForResult(Intent.createChooser(intent, getString(R.string.select_image)), 0);
+        flag = 1;
     }
 
     @Override
@@ -233,6 +233,7 @@ public class AddContactActivity extends AppCompatActivity implements LoaderManag
         // optional values
         if(flag==1) {
             values.put(Contract.ContactEntry.COLUMN_PICTURE, mPhotoUri.toString());
+            flag=0;
         } else {
             Toast.makeText(this, "Contact Image required", Toast.LENGTH_SHORT).show();
             return hasAllRequiredValues;
@@ -326,10 +327,7 @@ public class AddContactActivity extends AppCompatActivity implements LoaderManag
 
     }
 
-    private void showUnsavedChangesDialog(
-            DialogInterface.OnClickListener discardButtonClickListener) {
-        // Create an AlertDialog.Builder and set the message, and click listeners
-        // for the positive and negative buttons on the dialog.
+    private void showUnsavedChangesDialog(DialogInterface.OnClickListener discardButtonClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.unsaved_changes_dialog_msg);
         builder.setPositiveButton(R.string.discard, discardButtonClickListener);
@@ -348,22 +346,19 @@ public class AddContactActivity extends AppCompatActivity implements LoaderManag
         alertDialog.show();
     }
 
-    /**
-     * Prompt the user to confirm that they want to delete this product.
-     */
+
+    // Prompt the user to confirm that they want to delete this product.
+
     private void showDeleteConfirmationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.delete_dialog_msg);
         builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                // User clicked the "Delete" button, so delete the product.
                 deleteProduct();
             }
         });
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                // User clicked the "Cancel" button, so dismiss the dialog
-                // and continue editing the product.
                 if (dialog != null) {
                     dialog.dismiss();
                 }
