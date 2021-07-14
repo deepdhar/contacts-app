@@ -36,6 +36,9 @@ From Android Studio
 - XML
 - [Android](https://developer.android.com/)
 
+## Screenshots
+<img src="https://user-images.githubusercontent.com/53803245/125573733-5ac0139d-92e5-49b9-a566-0f87db123247.jpg">
+
 ## Key Points
 - Stores contacts on device offline
 - Clean user interface and easy readability
