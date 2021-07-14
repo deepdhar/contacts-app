@@ -31,12 +31,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         getSupportActionBar().hide();
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddContactActivity.class);
-                startActivity(intent);
-            }
+        fab.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, AddContactActivity.class);
+            startActivity(intent);
         });
 
         ListView listView = findViewById(R.id.list);
@@ -44,15 +41,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         listView.setAdapter(mContactsAdapter);
 
         // whenever we press a listview for updating
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, AddContactActivity.class);
-                Uri newUri = ContentUris.withAppendedId(Contract.ContactEntry.CONTENT_URI, id);
-                intent.setData(newUri);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.fade_out);
-            }
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Intent intent = new Intent(MainActivity.this, AddContactActivity.class);
+            Uri newUri = ContentUris.withAppendedId(Contract.ContactEntry.CONTENT_URI, id);
+            intent.setData(newUri);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.fade_out);
+            AddContactActivity.flag=1;
         });
 
         // get the loader running
