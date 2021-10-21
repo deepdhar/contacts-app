@@ -48,5 +48,5 @@ From Android Studio
 
 ---
 
-### Maintained By
+### Made By
 [Deep Dhar](https://github.com/deepdhar) ❤☕
